@@ -21,6 +21,21 @@ class singlyLinkedList{
 		size++;
 	}
 	
+	void addLast(int d){
+		Node n = new Node(d);
+		if(head == null){
+			head = n;
+		}
+		else{
+			Node temp = head;
+			while(temp.next!=null){
+				temp = temp.next;
+			}
+			temp.next = n;
+		}
+		size++;
+	}
+
 	void display(){
 		Node temp = head;
 		while(temp!=null){
@@ -34,6 +49,9 @@ class singlyLinkedList{
 		singlyLinkedList lst = new singlyLinkedList();
 		lst.addFirst(10);
 		lst.addFirst(20);
+		lst.display();
+		lst.addLast(30);
+		lst.addLast(40);
 		lst.display();
 	}
 	
