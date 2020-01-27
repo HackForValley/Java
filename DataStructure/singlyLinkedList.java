@@ -36,6 +36,39 @@ class singlyLinkedList{
 		size++;
 	}
 
+	void removeFirst(){
+		if(head == null){
+			System.out.println("List is Empty");
+		}
+		else if(size == 1){
+			head = null;
+			size--;
+		}
+		else{
+			Node temp = head.next;
+			head = temp;
+			size--;
+		}
+	}
+
+	void removeLast(){
+		if(head == null){
+			System.out.println("List is Empty");
+		}
+		else if(size == 1){
+			head = null;
+			size--;
+		}
+		else{
+			Node temp = head;
+			for(int i=0;i<size-2;i++){
+				temp = temp.next;
+			}
+			temp.next = null;
+			size--;
+		}
+	}
+
 	void display(){
 		Node temp = head;
 		while(temp!=null){
@@ -52,6 +85,12 @@ class singlyLinkedList{
 		lst.display();
 		lst.addLast(30);
 		lst.addLast(40);
+		lst.display();
+		lst.addFirst(0);
+		lst.addLast(0);
+		lst.display();
+		lst.removeFirst();
+		lst.removeLast();
 		lst.display();
 	}
 	
