@@ -124,6 +124,19 @@ class singlyLinkedList{
 		}
 	}
 
+	void reverse(){
+		Node current = head;
+		Node prev = null;
+		Node next;
+		while(current != null){
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
+		}
+		head = prev;
+	}
+
 	void display(){
 		Node temp = head;
 		while(temp!=null){
