@@ -147,6 +147,23 @@ class singlyLinkedList{
 		return false;
 	}
 
+	int middleElement(){
+		Node slow = head;
+		Node fast = head;
+		if(head == null){
+			System.out.println("List is Empty");
+			return Integer.MIN_VALUE;
+		}
+		else{
+			while(fast!=null && fast.next!=null){
+				fast = fast.next.next;
+				slow = slow.next;
+			}
+			return slow.data;
+		}
+		
+	}
+
 	void reverse(){
 		Node current = head;
 		Node prev = null;
