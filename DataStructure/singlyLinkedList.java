@@ -124,6 +124,29 @@ class singlyLinkedList{
 		}
 	}
 
+	boolean detectLoopList(){
+		return detectLoopList(head);
+	}
+
+	boolean detectLoopList(Node head){
+		LinkedList l = new LinkedList();
+		for(int i=0;i<size;i++){
+			l.addLast(0);
+		}
+		Node temp = head;
+		Node temp2 = l.head;
+		while(temp != null){
+			if(temp2.data == 1){
+				return true;
+			}
+			temp2.data = 1;
+			temp = temp.next;
+			temp2 = temp2.next;
+		}
+		
+		return false;
+	}
+
 	void reverse(){
 		Node current = head;
 		Node prev = null;
