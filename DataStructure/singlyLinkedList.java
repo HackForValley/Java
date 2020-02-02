@@ -164,6 +164,20 @@ class singlyLinkedList{
 		
 	}
 
+	int nthFromLast(int n){
+		if(n > size){
+			System.out.println("Value is greater than size");
+			return Integer.MIN_VALUE;
+		}
+		else{
+			Node temp = head;
+			for(int i=0;i<size-n;i++){
+				temp = temp.next;
+			}
+			return temp.data;
+		}
+	}
+
 	void reverse(){
 		Node current = head;
 		Node prev = null;
