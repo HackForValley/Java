@@ -36,6 +36,38 @@ class singlyLinkedList{
 		size++;
 	}
 
+	void addAt(int idx, int d){
+		Node temp = head;
+		Node n = new Node(d);
+		n.next = null;
+		try{
+			if(idx > size){
+				throw new ArrayIndexOutOfBoundsException();
+			}
+			else if(idx == 0){
+				n.next = temp;
+				head = n;
+				size++;
+			}
+			else{
+				Node t = head;
+				for(int i=0;i<idx;i++){
+					if(i == idx - 1){
+						t = temp;
+					}
+					temp = temp.next;
+				}
+				n.next = temp;
+				t.next = n;
+				size++;
+			}
+			
+		}
+		catch(Exception e){
+			System.out.println("Index out of bound, Size of array is: "+size);
+		}
+	}
+
 	void removeFirst(){
 		if(head == null){
 			System.out.println("List is Empty");
@@ -65,6 +97,29 @@ class singlyLinkedList{
 				temp = temp.next;
 			}
 			temp.next = null;
+			size--;
+		}
+	}
+
+	void removeAt(int idx){
+		if(idx > size){
+			System.out.println("Index out of Bound");
+		}
+		else if(idx == 0){
+			Node temp = head;
+			head = temp.next;
+			size--;
+		}
+		else{
+			Node temp = head;
+			Node t = head;
+			for(int i=0;i<idx;i++){
+				if(i == idx-1){
+					t = temp;
+				}
+				temp = temp.next;		
+			}
+			t.next = temp.next;
 			size--;
 		}
 	}
